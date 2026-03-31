@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "gigachat": {
+      "command": "npx",
+      "args": ["-y", "@theyahia/gigachat-mcp"],
+      "env": {
+        "GIGACHAT_AUTH_KEY": ""
+      }
+    }
+  }
+}
