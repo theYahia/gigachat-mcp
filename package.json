@@ -1,7 +1,7 @@
 {
   "name": "@theyahia/gigachat-mcp",
-  "version": "3.0.0",
-  "description": "MCP server for Sber GigaChat API — chat, models, embeddings, token count, image generation, balance, assistants, file upload. 8 tools.",
+  "version": "3.0.1",
+  "description": "MCP server for GigaChat — AI chat, embeddings, image generation (Russia)",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -46,7 +46,9 @@
     "sber",
     "llm",
     "embeddings",
-    "image-generation"
+    "image-generation",
+    "api",
+    "typescript"
   ],
   "license": "MIT",
   "repository": {
