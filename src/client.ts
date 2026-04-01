@@ -60,6 +60,46 @@ export async function gigachatPost(path: string, body: unknown): Promise<unknown
   return gigachatRequest("POST", path, body);
 }
 
+export async function gigachatPostFormData(path: string, formData: FormData): Promise<unknown> {
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    const token = await tokenManager.getToken();
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), TIMEOUT);
+
+    try {
+      const response = await fetch(`${API_BASE}${path}`, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Accept": "application/json",
+        },
+        body: formData,
+        signal: controller.signal,
+      });
+      clearTimeout(timer);
+
+      if (response.ok) return response.json();
+
+      if ((response.status === 429 || response.status >= 500) && attempt < MAX_RETRIES) {
+        const delay = Math.min(1000 * 2 ** (attempt - 1), 8000);
+        console.error(`[gigachat-mcp] ${response.status}, retry in ${delay}ms (${attempt}/${MAX_RETRIES})`);
+        await new Promise(r => setTimeout(r, delay));
+        continue;
+      }
+
+      throw new Error(`GigaChat HTTP ${response.status}: ${response.statusText}`);
+    } catch (error) {
+      clearTimeout(timer);
+      if (error instanceof DOMException && error.name === "AbortError" && attempt < MAX_RETRIES) {
+        console.error(`[gigachat-mcp] Timeout, retry (${attempt}/${MAX_RETRIES})`);
+        continue;
+      }
+      throw error;
+    }
+  }
+  throw new Error("GigaChat: all retries exhausted");
+}
+
 async function gigachatRequest(method: string, path: string, body?: unknown): Promise<unknown> {
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     const token = await tokenManager.getToken();

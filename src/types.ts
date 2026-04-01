@@ -59,3 +59,21 @@ export interface EmbeddingsResponse {
   data: EmbeddingData[];
   model: string;
 }
+
+export interface TokenCountResponse {
+  tokens: number;
+  characters: number;
+}
+
+export interface BalanceResponse {
+  balance: Array<{ usage: string; value: number }>;
+}
+
+export interface FileUploadResponse {
+  id: string;
+  object: string;
+  bytes: number;
+  created_at: number;
+  filename: string;
+  purpose: string;
+}

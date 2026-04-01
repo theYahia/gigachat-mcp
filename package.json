@@ -1,7 +1,7 @@
 {
   "name": "@theyahia/gigachat-mcp",
-  "version": "1.0.1",
-  "description": "MCP server for Sber GigaChat API — chat completions, models, embeddings.",
+  "version": "3.0.0",
+  "description": "MCP server for Sber GigaChat API — chat, models, embeddings, token count, image generation, balance, assistants, file upload. 8 tools.",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -17,6 +17,8 @@
     "build": "tsc",
     "dev": "tsx src/index.ts",
     "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
@@ -26,7 +28,8 @@
   "devDependencies": {
     "@types/node": "^22.0.0",
     "tsx": "^4.19.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "vitest": "^3.2.4"
   },
   "publishConfig": {
     "access": "public"
@@ -42,7 +45,8 @@
     "gigachat",
     "sber",
     "llm",
-    "embeddings"
+    "embeddings",
+    "image-generation"
   ],
   "license": "MIT",
   "repository": {
