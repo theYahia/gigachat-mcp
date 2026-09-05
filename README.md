@@ -1,3 +1,17 @@
+> ## 🗄 Репозиторий заархивирован
+>
+> Разработка переехала в **[theYahia/WWmcp](https://github.com/theYahia/WWmcp)** — монорепозиторий MCP-серверов для незападных API: СНГ, MENA, Африка, LATAM, Юго-Восточная Азия. Общее ядро `@theyahia/mcp-core`, единый CI, единый релизный конвейер.
+>
+> Актуальная версия того, что лежало здесь: [`servers/gigachat/`](https://github.com/theYahia/WWmcp/tree/main/servers/gigachat)
+>
+> Пакет в npm прежний — [`@theyahia/gigachat-mcp`](https://www.npmjs.com/package/@theyahia/gigachat-mcp), ставится и работает как раньше.
+> Здесь больше ничего не обновляется. Задачи и pull request'ы — в WWmcp.
+>
+> **Archived — development moved to [theYahia/WWmcp](https://github.com/theYahia/WWmcp),** a monorepo of MCP servers for non-Western APIs.
+> The current version of this package now lives at [`servers/gigachat/`](https://github.com/theYahia/WWmcp/tree/main/servers/gigachat).
+> The npm package [`@theyahia/gigachat-mcp`](https://www.npmjs.com/package/@theyahia/gigachat-mcp) is unchanged.
+> Please open issues and pull requests there.
+
 # @theyahia/gigachat-mcp
 
 MCP-сервер для Sber GigaChat API — чат, эмбеддинги, генерация изображений, подсчёт токенов, баланс, ассистенты, файлы. **8 инструментов.**
