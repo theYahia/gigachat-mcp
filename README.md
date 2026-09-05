@@ -65,3 +65,7 @@ claude mcp add gigachat -e GIGACHAT_AUTH_KEY=your-auth-key -- npx -y @theyahia/g
 ## Лицензия
 
 MIT
+
+---
+
+Telegram: [@vhodvai](https://t.me/vhodvai)
